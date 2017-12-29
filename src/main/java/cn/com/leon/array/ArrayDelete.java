@@ -16,7 +16,7 @@ public class ArrayDelete {
      * @param index
      * @return
      */
-    public static Object[] delete(Object[] arr,int... index){
+    public static Object[] delete(Object[] arr,Integer... index){
         //将将要删除的下表排序
         Arrays.sort(index);
         int instant = 0;
@@ -58,15 +58,13 @@ public class ArrayDelete {
      * @param object
      * @return
      */
-    public static Object[] delete(Object[] arr,Object... object){
-        //1
-        return null;
+    public static Object[] deleteElemets(Object[] arr,Object... object){
+        //1找到该元素所在位置
+        Integer[] indexArr = ArrayQuery.queryElements(arr,object);
+        Object[] result = delete(arr,indexArr);
+        return result;
     }
 
-    public static Object[] delete(Object[] arr,Object object){
-        //1循环找到该元素位置
-        return null;
-    }
 
 
     public static void main(String[] args) {
@@ -85,12 +83,22 @@ public class ArrayDelete {
          */
         System.out.println("test delete one index");
         Object[] arr2 = {1,2,3,4,5};
-        int[] index = new int[]{3,2};
+        Integer[] index = new Integer[]{3,2};
         System.out.println(Arrays.toString(ArrayDelete.delete(arr2,3)));
         /**
          * test delete some index
          */
         System.out.println("test delete some index");
         System.out.println(Arrays.toString(ArrayDelete.delete(arr2,index)));
+        /**
+         * test delete elements
+         */
+        String[] strArr = {"h","e","l","l","o"};
+        String[] elementsArr = {"l"};
+        String[] elementsArr2 = {"l","o"};
+        System.out.println("test delete elements");
+        System.out.println(Arrays.toString(ArrayDelete.deleteElemets(strArr,elementsArr)));
+        System.out.println(Arrays.toString(ArrayDelete.deleteElemets(strArr,elementsArr2)));
+
     }
 }
