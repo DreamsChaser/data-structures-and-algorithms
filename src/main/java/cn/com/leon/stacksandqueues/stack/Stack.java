@@ -54,7 +54,7 @@ public class Stack {
      *
      * @param value
      */
-    public void push(int value) {
+    public void push(Object value) {
         if (isFull()) {
             throw new ArrayIndexOutOfBoundsException("栈已满");
         }
